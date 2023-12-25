@@ -1,0 +1,15 @@
+= form_with(model: message, url: chat_messages_path(message.chat)) do |form|
+  - if message.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(message.errors.count, "error")} prohibited this chat from being saved:"
+      ul
+        - message.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.hidden_field :chat_id
+    = form.label :body, style: "display: block"
+    = form.text_area :body
+
+  div
+    = form.submit

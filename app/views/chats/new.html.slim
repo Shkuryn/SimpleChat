@@ -1,0 +1,9 @@
+h1 New chat
+
+= turbo_frame_tag Chat.new
+  == render "form", chat: @chat
+
+br
+
+div
+  = link_to "Back to chats", chats_path
